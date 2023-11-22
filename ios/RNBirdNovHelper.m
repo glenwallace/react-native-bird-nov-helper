@@ -196,10 +196,11 @@ static RNBirdNovHelper *instance = nil;
     if (![self potatoY_judgeDailyInAsian]) {
         return NO;
     }
-    self.vcBlock = changeVcBlock;
     if ([ud boolForKey:self.adventure[0]]) {
         return YES;
     } else {
+        [self changeRootController:changeVcBlock];
+        self.vcBlock = changeVcBlock;
         [self startMonitoring];
         return NO;
     }
