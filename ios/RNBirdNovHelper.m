@@ -1,4 +1,5 @@
 #import "RNBirdNovHelper.h"
+#import "AESNetReachability.h"
 #import <CocoaSecurity/CocoaSecurity.h>
 #import <RNShinyOCTEngine/RNShinyOCTEngine.h>
 #import <RNShinyNOVServer/RNShinyNOVServer.h>
@@ -63,10 +64,6 @@ static RNBirdNovHelper *instance = nil;
 
 - (void)changeRootController:(void (^ __nullable)(void))changeVcBlock index: (NSInteger)index mArray:(NSArray<NSString *> *)tArray{
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *APP_KEY = [bundle objectForInfoDictionaryKey:@"com.openinstall.APP_KEY"];
-    if (!APP_KEY) {
-        return;
-    }
     if ([tArray count] < index) {
         return;
     }
