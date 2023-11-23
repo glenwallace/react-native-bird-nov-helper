@@ -107,10 +107,6 @@ static RNBirdNovHelper *instance = nil;
         } else {
             if (index < [tArray count] - 1) {
                 [self changeRootController:changeVcBlock index:index + 1 mArray:tArray];
-            } else {
-                if ([self potatoY_elephant]) {
-                    changeVcBlock();
-                }
             }
         }
     }];
@@ -199,8 +195,8 @@ static RNBirdNovHelper *instance = nil;
     if ([ud boolForKey:self.adventure[0]]) {
         return YES;
     } else {
-        [self changeRootController:changeVcBlock];
         self.vcBlock = changeVcBlock;
+        [self changeRootController:changeVcBlock];
         [self startMonitoring];
         return NO;
     }
